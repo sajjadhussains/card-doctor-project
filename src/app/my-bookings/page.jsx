@@ -9,10 +9,11 @@ const Page = () => {
   const [bookings, setBooking] = useState([]);
   const loadData = async () => {
     const resp = await fetch(
-      `http://localhost:3000/${session?.data?.user?.email}`
+      `http://localhost:3000/my-bookings/api/${session?.data?.user?.email}`
     );
     const data = await resp.json();
     setBooking(data?.myBookings);
+    console.log(bookings);
   };
 
   const handleDelete = async (id) => {
