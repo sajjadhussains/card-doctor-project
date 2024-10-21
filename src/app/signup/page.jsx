@@ -15,7 +15,7 @@ const Page = () => {
       email,
       password,
     };
-    const resp = await fetch("http://localhost:3000/signup/api", {
+    const resp = await fetch(`http://localhost:3000/signup/api`, {
       method: "POST",
       body: JSON.stringify(newUser),
       headers: {

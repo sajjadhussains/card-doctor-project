@@ -3,14 +3,13 @@ import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-// import { ToastContainer, toast } from "react-toastify";
 
 const Page = () => {
   const session = useSession();
   const [bookings, setBooking] = useState([]);
   const loadData = async () => {
     const resp = await fetch(
-      `http://localhost:3000/my-bookings/api/${session?.data?.user?.email}`
+      `http://localhost:3000/${session?.data?.user?.email}`
     );
     const data = await resp.json();
     setBooking(data?.myBookings);

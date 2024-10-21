@@ -3,6 +3,7 @@ import ServiceCard from "../ServiceCard/ServiceCard";
 
 const Services = async () => {
   const { services } = await getServices();
+  console.log(services);
 
   return (
     <div className="mt-32 text-slate-800 min-h-screen">

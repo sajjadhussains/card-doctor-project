@@ -25,7 +25,7 @@ const Checkout = ({ params }) => {
       ...service,
     };
     console.log(newBooking);
-    const resp = await fetch("http://localhost:3000/checkout/api/new-booking", {
+    const resp = await fetch(`http://localhost:3000/checkout/api/new-booking`, {
       method: "POST",
       body: JSON.stringify(newBooking),
       headers: {
