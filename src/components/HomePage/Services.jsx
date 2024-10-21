@@ -12,8 +12,7 @@ const Services = async () => {
           <h2 className="text-5xl mt-5">Our Service Area</h2>
           <p className="text-[#737373] mt-5">
             the majority have suffered alteration in some form, by injected
-            humour, or randomised words which don't look even slightly
-            believable.{" "}
+            humour, or randomised words which don look even slightly believable.{" "}
           </p>
         </div>
       </div>
