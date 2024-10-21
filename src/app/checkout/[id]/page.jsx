@@ -42,7 +42,7 @@ const Checkout = ({ params }) => {
 
   useEffect(() => {
     loadService();
-  }, [params]);
+  }, [params.id]);
 
   return (
     <div className="container mx-auto mb-32">
