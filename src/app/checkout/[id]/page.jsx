@@ -25,13 +25,16 @@ const Checkout = ({ params }) => {
       ...service,
     };
     console.log(newBooking);
-    const resp = await fetch(`http://localhost:3000/checkout/api/new-booking`, {
-      method: "POST",
-      body: JSON.stringify(newBooking),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    const resp = await fetch(
+      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/checkout/api/new-booking`,
+      {
+        method: "POST",
+        body: JSON.stringify(newBooking),
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    );
     const response = await resp?.json();
     toast.success(response?.message);
     event.target.reset();

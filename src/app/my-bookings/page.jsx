@@ -9,7 +9,7 @@ const Page = () => {
   const [bookings, setBooking] = useState([]);
   const loadData = async () => {
     const resp = await fetch(
-      `http://localhost:3000/my-bookings/api/${session?.data?.user?.email}`
+      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/my-bookings/api/${session?.data?.user?.email}`
     );
     const data = await resp.json();
     setBooking(data?.myBookings);
@@ -19,7 +19,7 @@ const Page = () => {
   const handleDelete = async (id) => {
     // console.log(id);
     const deleted = await fetch(
-      `http://localhost:3000/my-bookings/api/booking/${id}`,
+      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/my-bookings/api/booking/${id}`,
       {
         method: "DELETE",
       }

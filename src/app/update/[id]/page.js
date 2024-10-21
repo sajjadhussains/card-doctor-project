@@ -11,7 +11,7 @@ const Page = ({ params }) => {
 
   const loadBooking = async () => {
     const bookingDetail = await fetch(
-      `http://localhost:3000/my-bookings/api/booking/${params.id}`
+      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/my-bookings/api/booking/${params.id}`
     );
     const data = await bookingDetail.json();
     // console.log(data.data);
@@ -27,7 +27,7 @@ const Page = ({ params }) => {
       address: event.target.address.value,
     };
     const resp = await fetch(
-      `http://localhost:3000/my-bookings/api/booking/${params.id}`,
+      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/my-bookings/api/booking/${params.id}`,
       {
         method: "PATCH",
         body: JSON.stringify(updatedBooking),

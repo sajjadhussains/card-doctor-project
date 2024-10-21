@@ -15,13 +15,16 @@ const Page = () => {
       email,
       password,
     };
-    const resp = await fetch(`http://localhost:3000/signup/api`, {
-      method: "POST",
-      body: JSON.stringify(newUser),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const resp = await fetch(
+      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/signup/api`,
+      {
+        method: "POST",
+        body: JSON.stringify(newUser),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     if (resp.status === 200) {
       e.target.reset();
     }
