@@ -1,5 +1,6 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+
 import bcrypt from "bcrypt";
 import { connectDb } from "@/lib/connectDB";
 
@@ -19,21 +20,18 @@ const handler = NextAuth({
       async authorize(credentials) {
         const { email, password } = credentials;
         if (!email || !password) {
-          console.error("Missing email or password");
           return null;
         }
         const db = await connectDb();
         const currentUser = await db.collection("users").findOne({ email });
         if (!currentUser) {
-          console.error("User not found");
           return null;
         }
-        const passwordMatched = bcrypt.compareSync(
+        const passwordMatched = await bcrypt.compareSync(
           password,
           currentUser.password
         );
         if (!passwordMatched) {
-          console.error("Password mismatch");
           return null;
         }
         return currentUser;
@@ -43,9 +41,7 @@ const handler = NextAuth({
   pages: {
     signIn: "/login",
   },
-  callbacks: {
-    // Add any needed callbacks here
-  },
+  callbacks: {},
 });
 
 export { handler as GET, handler as POST };

@@ -3,6 +3,7 @@ import ServiceCard from "../ServiceCard/ServiceCard";
 
 const Services = async () => {
   const { services } = await getServices();
+  console.log("services data", services);
   if (services?.length <= 0) {
     return null;
   }

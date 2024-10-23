@@ -4,7 +4,7 @@ let db;
 export const connectDb = async () => {
   if (db) return db;
   try {
-    const uri = process.env.NEXT_PUBLIC_MONGODB_URI;
+    const uri = process.env.MONGODB_URI;
     const client = new MongoClient(uri, {
       serverApi: {
         version: ServerApiVersion.v1,
@@ -16,6 +16,8 @@ export const connectDb = async () => {
     // console.log(db);
     if (db) {
       console.log("db connected");
+    } else {
+      console.log("db is not connected");
     }
     return db;
   } catch (error) {

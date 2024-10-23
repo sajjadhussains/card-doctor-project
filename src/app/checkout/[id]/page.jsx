@@ -7,6 +7,7 @@ import { toast, ToastContainer } from "react-toastify";
 
 const Checkout = ({ params }) => {
   const { data } = useSession();
+  console.log(data);
   const [service, setService] = useState([]);
   const loadService = async () => {
     const { service } = await generateServiceDetails(params.id);
@@ -26,7 +27,7 @@ const Checkout = ({ params }) => {
     };
     console.log(newBooking);
     const resp = await fetch(
-      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/checkout/api/new-booking`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/checkout/api/new-booking`,
       {
         method: "POST",
         body: JSON.stringify(newBooking),

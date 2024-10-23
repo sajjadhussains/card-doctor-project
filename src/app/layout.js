@@ -1,45 +1,34 @@
-export const dynamic = "force-dynamic";
-import localFont from "next/font/local";
-import "./globals.css";
-import Navbar from "@/components/Shared/Navbar";
-import Footer from "@/components/Shared/Footer";
 import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 import AuthProvider from "@/services/AuthProvider";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-const inter = Inter({
-  subsets: ["latin"], // Optional: Choose the subsets you need
-  weight: ["400", "500", "700"], // Optional: Specify weights if needed
-});
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import { Suspense } from "react";
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Car Doctor pro",
-  description: "Car reparing workshop",
+  title: {
+    default: "Car Doctor",
+    template: "%s | Car Doctor",
+  },
+  description: "Car Reaper Workshop",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="carDoctorTheme">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased ${inter.className}`}
-      >
-        <ToastContainer />
-        <AuthProvider>
-          <Navbar></Navbar>
-          {children}
-          <Footer></Footer>
-        </AuthProvider>
+      <body className={inter.className}>
+        <Suspense>
+          <ToastContainer />
+          <AuthProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </AuthProvider>
+        </Suspense>
       </body>
     </html>
   );

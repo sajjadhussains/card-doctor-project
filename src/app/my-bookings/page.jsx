@@ -6,10 +6,11 @@ import React, { useEffect, useState } from "react";
 
 const Page = () => {
   const session = useSession();
+
   const [bookings, setBooking] = useState([]);
   const loadData = async () => {
     const resp = await fetch(
-      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/my-bookings/api/${session?.data?.user?.email}`
+      `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/${session?.data?.user?.email}`
     );
     const data = await resp.json();
     setBooking(data?.myBookings);
@@ -19,7 +20,7 @@ const Page = () => {
   const handleDelete = async (id) => {
     // console.log(id);
     const deleted = await fetch(
-      `https://card-doctor-project-5116ux9tz-sajjad-hussains-projects-dc535a31.vercel.app/my-bookings/api/booking/${id}`,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/my-bookings/api/booking/${id}`,
       {
         method: "DELETE",
       }
