@@ -1,12 +1,13 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/shared/Navbar";
-import Footer from "@/components/shared/Footer";
+
 import AuthProvider from "@/services/AuthProvider";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Suspense } from "react";
+import Navbar from "@/components/Shared/Navbar";
+import Footer from "@/components/Shared/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -24,9 +25,9 @@ export default function RootLayout({ children }) {
         <Suspense>
           <ToastContainer />
           <AuthProvider>
-            <Navbar />
+            <Navbar></Navbar>
             {children}
-            <Footer />
+            <Footer></Footer>
           </AuthProvider>
         </Suspense>
       </body>

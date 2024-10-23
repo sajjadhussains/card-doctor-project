@@ -76,7 +76,7 @@ const Page = () => {
               </button>
             </div>
             <h6 className="text-center mt-12">
-              Don't have an account?
+              Don&apos;t have an account?
               <Link className="text-primary ml-2" href={`/signup`}>
                 Signup
               </Link>
